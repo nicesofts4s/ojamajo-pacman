@@ -64,7 +64,10 @@ namespace pacman
             if(m_exit)
             {
                 if(m_exit > 1.4)
+                {
                     set_state(m_intro_after ? static_cast<base_state*>(new intro_state()) : static_cast<base_state*>(new insert_coin_state()));
+                    return;
+                }
 
                 m_exit += delta;
             }

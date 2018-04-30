@@ -3,6 +3,8 @@
 #include "../../main.h"
 #include "../../states/gameplay_state.h"
 
+#include "play_state.h"
+
 #include <SFML/Audio.hpp>
 
 namespace pacman
@@ -19,6 +21,9 @@ public:
 
                 m_start_sound = sf::Sound(m_start_sound_buf);
                 m_start_sound.setVolume(current_save.volume);
+
+                // create play state here to prevent freeze once we switch
+                m_play_state = new play_state(parent);
             }
 
             void on_enter(states::gameplay_state::base_state* last_state) override { m_start_sound.play(); }
@@ -26,6 +31,8 @@ public:
             void update(double delta, double total_time) override;
             void draw(sf::RenderTarget& target) override;
 private:
+            states::gameplay_state::base_state* m_play_state;
+
             sf::SoundBuffer m_start_sound_buf;
             sf::Sound m_start_sound;
 

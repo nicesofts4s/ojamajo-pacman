@@ -30,10 +30,14 @@ namespace pacman
         {
             if(m_exit)
             {
-                m_bg_music.stop();
+            	if(m_bg_music.getStatus() == sf::Music::Playing)
+                	m_bg_music.stop();
 
                 if(m_exit > 1.4)
+                {
                     pacman::set_state(new insert_coin_state());
+                    return;
+                }
 
                 m_exit += delta;
             }

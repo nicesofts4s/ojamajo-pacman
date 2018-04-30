@@ -263,13 +263,19 @@ namespace pacman
 
             if(m_paused || m_exit)
             {
-                for(int i = 0; i < 4; i++) 
-                    m_bg_snd[i].stop();
+                for(int i = 0; i < 4; i++)
+                {
+                    if(m_bg_snd[i].getStatus() == sf::Sound::Playing)
+                        m_bg_snd[i].stop();
+                }
 
                 if(m_exit)
                 {
                     if(m_exit > 1.4)
+                    {
                         pacman::set_state(m_exit_state);
+                        return;
+                    }
                         
                     m_exit += delta;
                 }

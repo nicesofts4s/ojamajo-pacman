@@ -1,5 +1,4 @@
 #include "start_state.h"
-#include "play_state.h"
 
 #include <cmath>
 
@@ -26,7 +25,7 @@ namespace pacman
             if(m_start_sound.getStatus() != sf::Sound::Playing)
             {
                 if(m_exit > 0.2)
-                    parent.set_state(new play_state(parent));
+                    parent.set_state(m_play_state);
                 else
                     m_exit += delta;
             }

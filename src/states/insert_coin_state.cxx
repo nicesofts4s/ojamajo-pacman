@@ -37,7 +37,10 @@ namespace pacman
             if(m_exit && (m_doremi_sprite.getPosition().x < -20 || m_doremi_sprite.getPosition().x > 224 + 20))
             {
                 if(m_exit > 1.4)
+                {
                     pacman::set_state(m_exit_state);
+                    return;
+                }
 
                 m_exit += delta;
             }

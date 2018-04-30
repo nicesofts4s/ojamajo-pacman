@@ -15,7 +15,10 @@ namespace pacman
             if(m_exit)
             {
                 if(m_exit > 1.4)
+                {
                     set_state(new select_character_state(data::characters::SHORTS));
+                    return;
+                }
 
                 m_exit += delta;
                 return;

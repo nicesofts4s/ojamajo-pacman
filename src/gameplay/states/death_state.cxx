@@ -26,9 +26,11 @@ namespace pacman
                 if(m_exit > 1.2)
                 {
                     // NO extra lives left
-                    // TODO: game over state
                     if(parent.player.extra_lives - 1 < 0)
+                    {
                         pacman::set_state(new states::game_over_state(parent.level));
+                        return;
+                    }
                     else
                     {
                         states::gameplay_state* new_state = new states::gameplay_state(parent.level, parent.map);

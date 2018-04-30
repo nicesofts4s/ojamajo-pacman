@@ -17,7 +17,10 @@ namespace pacman
             if(m_exit)
             {
                 if(m_exit > 1.4)
+                {
                     pacman::set_state(new insert_coin_state());
+                    return;
+                }
 
                 m_exit += delta;
             }
