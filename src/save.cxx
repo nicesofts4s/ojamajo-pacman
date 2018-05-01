@@ -59,8 +59,6 @@ namespace pacman
 
         if(!unlocked[(int)selected_character])
             selected_character = data::characters::DOREMI;
-
-        unlocked[data::characters::ESFORESTAN] = true;
     }
 
     void save::save_to_file(const std::string& file) const
