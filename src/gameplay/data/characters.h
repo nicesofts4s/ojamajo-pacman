@@ -24,6 +24,7 @@ namespace pacman
                 SHORTS,
                 PACMAN,
                 BURYPINK,
+                ESFORESTAN,
                 DODO,
 
                 SIZE_CHARACTER
@@ -296,6 +297,26 @@ namespace pacman
                 DODO
             };
 
+						constexpr info esforestan = {
+                "[s4s]tan",
+                "s4stan",
+                "The meme lord herself",
+
+                2000,
+
+                { 205, 141, 158 }, // hair / light pink
+                { 251, 217, 224 }, // costume / light pink
+
+                { 
+                    1.35,
+                    1.35,
+                    1.35
+                },
+
+                { 8, 10 },
+
+                ESFORESTAN
+            };
             // constexpr lole
             inline const info& enum_to_info(character_enum character)
             {
@@ -311,6 +332,7 @@ namespace pacman
                     case PACMAN: return pacman;
                     case BURYPINK: return burypink;
                     case DODO: return dodo;
+                    case ESFORESTAN: return esforestan;
                 }
 
                 return doremi;
