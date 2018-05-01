@@ -50,7 +50,7 @@ int main(int argc, char** argv)
     target.setSmooth(false);
 
     window.setFramerateLimit(500);
-    window.setVerticalSyncEnabled(false);
+    window.setVerticalSyncEnabled(true);
     window.setMouseCursorVisible(false);
     window.setKeyRepeatEnabled(false);
 
@@ -88,10 +88,7 @@ int main(int argc, char** argv)
                             window.create(sf::VideoMode::getDesktopMode(), "a fullscreen title", sf::Style::Fullscreen);
 
                         window.setFramerateLimit(500);
-
-                        // v-sync is only enabled in fullscreen
-                        window.setVerticalSyncEnabled(true);
-                        
+                        window.setVerticalSyncEnabled(true);                        
                         window.setMouseCursorVisible(false);
                         window.setKeyRepeatEnabled(false);
                         

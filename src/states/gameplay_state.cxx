@@ -14,7 +14,8 @@ namespace pacman
         {
             srand(seed + (x << 8) + y);
 
-            if(current_save.selected_character == data::characters::BURYPINK)
+            if(current_save.selected_character == data::characters::BURYPINK ||
+                current_save.selected_character == data::characters::ESFORESTAN)
             {
                 static sf::Color dot_colors[] = {
                     { 10, 167, 60 }, // green

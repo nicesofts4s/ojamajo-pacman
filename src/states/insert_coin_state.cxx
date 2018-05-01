@@ -76,9 +76,10 @@ namespace pacman
             if(!m_exit)
             {
                 target.draw(m_title_text);
-                target.draw(m_topd_text);
+                target.draw(m_tip_text);
 
                 target.draw(m_highscore_text);
+                target.draw(m_version_text);
 
                 if((int)((total_time - start_time) * 1000) % 1000 > 500)
                 {

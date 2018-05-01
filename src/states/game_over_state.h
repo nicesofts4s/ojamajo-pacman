@@ -25,7 +25,8 @@ public:
 
                 if(current_save.selected_character != data::characters::DODO &&
                     current_save.selected_character != data::characters::SHORTS &&
-                    current_save.selected_character != data::characters::PACMAN)
+                    current_save.selected_character != data::characters::PACMAN && 
+                    current_save.selected_character != data::characters::ESFORESTAN)
                 {
                     if(current_save.selected_character == data::characters::BURYPINK)
                         m_player_texture.loadFromFile("data/pacman/burypink/buryebil.png");

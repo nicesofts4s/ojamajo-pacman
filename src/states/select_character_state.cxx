@@ -108,7 +108,7 @@ namespace pacman
                 bool is_unknown = i == data::characters::SHORTS && !current_save.unlocked[data::characters::SHORTS];
                 sf::Sprite character(is_unknown ? m_unknown_texture : info.texture(0));
 
-                character.setPosition((int)-m_selected_display + (224 * i) + 224 / 2 - character.getTexture()->getSize().x / 2, 60);
+                character.setPosition((int)-m_selected_display + (224 * i) + 224 / 2 - character.getTexture()->getSize().x / 2, 50);
 
                 if(current_save.selected_character == i ||
                     is_unknown ||
@@ -120,13 +120,20 @@ namespace pacman
                 }
 
                 sf::Text name(is_unknown ? "????????" : info.name, fonts::emulogic, 8);
-                name.setPosition((int)-m_selected_display + (224 * i) + 224 / 2 - (int)name.getLocalBounds().width / 2, 100);
+                name.setPosition((int)-m_selected_display + (224 * i) + 224 / 2 - (int)name.getLocalBounds().width / 2, 80);
 
                 target.draw(name);
 
+                sf::Text author(is_unknown ? "by ????????" : "by " + std::string(info.author), fonts::emulogic, 8);
+
+                author.setPosition((int)-m_selected_display + (224 * i) + 224 / 2 - (int)author.getLocalBounds().width / 2, 90);
+                author.setColor({ 255, 255, 255, 140 });
+
+                target.draw(author);
+
                 sf::Text description(is_unknown ? "it is a mystery" : info.description, fonts::emulogic, 8);
 
-                description.setPosition((int)-m_selected_display + (224 * i) + 224 / 2 - (int)description.getLocalBounds().width / 2, 110);
+                description.setPosition((int)-m_selected_display + (224 * i) + 224 / 2 - (int)description.getLocalBounds().width / 2, 104);
                 description.setColor({ 255, 255, 255, 140 });
 
                 target.draw(description);

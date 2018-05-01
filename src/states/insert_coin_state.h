@@ -137,25 +137,26 @@ namespace pacman
 public:
             insert_coin_state() :
                 m_title_text("- OJAMAJO PACMAN -", fonts::emulogic, 8),
-                m_topd_text("tip: " + select_random_tip(), fonts::emulogic, 8), 
+                m_tip_text("tip: " + select_random_tip(), fonts::emulogic, 8), 
                 m_buttons_text("        insert coine\n    select character\n    credits\n    adjust volume", fonts::emulogic, 8),
                 m_buttons_color_text("[ENTER]\n[Z]\n[C]\n[V]", fonts::emulogic, 8),
 
-                m_highscore_text("HIGHSCORE: " + std::to_string(current_save.highscore) + " pts", fonts::emulogic, 8)
+                m_highscore_text("HIGHSCORE: " + std::to_string(current_save.highscore) + " pts", fonts::emulogic, 8),
+                m_version_text("v1.1", fonts::emulogic, 8)
             {
                 m_title_text.setPosition({ 
                     (int)(224 / 2 - m_title_text.getLocalBounds().width / 2), 
-                    (int)(288 / 2 - m_topd_text.getLocalBounds().height / 2) - 44, 
+                    (int)(288 / 2 - m_tip_text.getLocalBounds().height / 2) - 44, 
                 });
-                m_topd_text.setPosition({ 
-                    (int)(224 / 2 - m_topd_text.getLocalBounds().width / 2), 
-                    (int)(288 / 2 - m_topd_text.getLocalBounds().height / 2) - 26, 
+                m_tip_text.setPosition({ 
+                    (int)(224 / 2 - m_tip_text.getLocalBounds().width / 2), 
+                    (int)(288 / 2 - m_tip_text.getLocalBounds().height / 2) - 26, 
                 });
 
-                if(m_topd_text.getPosition().x < 2)
-                    m_topd_text.setPosition(2, m_topd_text.getPosition().y);
+                if(m_tip_text.getPosition().x < 2)
+                    m_tip_text.setPosition(2, m_tip_text.getPosition().y);
 
-                m_topd_text.setColor({ 255, 255, 255, 120 });
+                m_tip_text.setColor({ 255, 255, 255, 120 });
 
                 m_buttons_text.setPosition({ 
                     (int)(224 / 2 - m_buttons_text.getLocalBounds().width / 2), 
@@ -171,9 +172,15 @@ public:
 
                 m_highscore_text.setPosition({ 
                     (int)(224 - m_highscore_text.getLocalBounds().width - 10), 
-                    (int)(288 - m_highscore_text.getLocalBounds().height - 10), 
+                    (int)(288 - m_highscore_text.getLocalBounds().height - 20), 
                 });
                 m_highscore_text.setColor({ 137, 188, 235, 180 });
+
+                m_version_text.setPosition({ 
+                    (int)(224 - m_version_text.getLocalBounds().width - 10), 
+                    (int)(288 - m_version_text.getLocalBounds().height - 10), 
+                });
+                m_version_text.setColor({ 255, 255, 255, 80 });
 
                 m_doremi_sprite.setTexture(data::characters::doremi.texture(0));
                 m_doremi_sprite.setPosition({ 224 + 222 /* trips nice */, 288 - 80 });
@@ -199,20 +206,20 @@ public:
                 {
                     /*if(ev.key.code == sf::Keyboard::F5)
                     {
-                        m_topd_text = sf::Text("tip: " + select_random_tip(), fonts::emulogic, 8);
+                        m_tip_text = sf::Text("tip: " + select_random_tip(), fonts::emulogic, 8);
                         m_title_text.setPosition({ 
                             (int)(224 / 2 - m_title_text.getLocalBounds().width / 2), 
-                            (int)(288 / 2 - m_topd_text.getLocalBounds().height / 2) - 44, 
+                            (int)(288 / 2 - m_tip_text.getLocalBounds().height / 2) - 44, 
                         });
-                        m_topd_text.setPosition({ 
-                            (int)(224 / 2 - m_topd_text.getLocalBounds().width / 2), 
-                            (int)(288 / 2 - m_topd_text.getLocalBounds().height / 2) - 26, 
+                        m_tip_text.setPosition({ 
+                            (int)(224 / 2 - m_tip_text.getLocalBounds().width / 2), 
+                            (int)(288 / 2 - m_tip_text.getLocalBounds().height / 2) - 26, 
                         });
 
-                        if(m_topd_text.getPosition().x < 2)
-                            m_topd_text.setPosition(2, m_topd_text.getPosition().y);
+                        if(m_tip_text.getPosition().x < 2)
+                            m_tip_text.setPosition(2, m_tip_text.getPosition().y);
 
-                        m_topd_text.setColor({ 255, 255, 255, 120 });
+                        m_tip_text.setColor({ 255, 255, 255, 120 });
                     }*/
 
                     if(!m_exit)
@@ -274,7 +281,7 @@ public:
 private:
             void pick_new_doremi_y();
 
-            sf::Text m_title_text, m_buttons_color_text, m_buttons_text, m_topd_text, m_highscore_text;
+            sf::Text m_title_text, m_version_text, m_buttons_color_text, m_buttons_text, m_tip_text, m_highscore_text;
 
             sf::Sprite m_doremi_sprite;
 

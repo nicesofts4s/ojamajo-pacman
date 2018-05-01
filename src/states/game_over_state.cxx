@@ -31,7 +31,10 @@ namespace pacman
             if(m_exit)
                 return;
 
-            sf::Text game_over_text(current_save.selected_character == data::characters::BURYPINK ? "Ebil has won..." : "Game over...", fonts::emulogic, 8);
+            sf::Text game_over_text(
+                current_save.selected_character == data::characters::BURYPINK ? 
+                "Ebil has won..." : 
+                "Game over...", fonts::emulogic, 8);
             
             if(m_player_texture.getSize() != sf::Vector2u { 1, 1 })
             {

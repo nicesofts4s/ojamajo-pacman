@@ -24,6 +24,7 @@ namespace pacman
                 SHORTS,
                 PACMAN,
                 BURYPINK,
+                ESFORESTAN,
                 DODO,
 
                 SIZE_CHARACTER
@@ -47,7 +48,7 @@ namespace pacman
 
                 struct _multipliers { float speed, pts, blue_mode; };
 
-                const char* name, *path, *description;
+                const char* name, *author, *path, *description;
                 int cost;
 
                 _constexpr_color primary_color, secondary_color;
@@ -64,6 +65,7 @@ namespace pacman
 
             constexpr info doremi = {
                 "Doremi",
+                "Nicesoft",
                 "doremi",
                 "The worlds unluckiest...\n\"pizza missing a slice\"?",
 
@@ -85,6 +87,7 @@ namespace pacman
 
             constexpr info hadzuki = {
                 "Hadzuki",
+                "Nicesoft",
                 "hadzuki",
                 "i don't know what\nto put here?????",
 
@@ -106,6 +109,7 @@ namespace pacman
 
             constexpr info aiko = {
                 "Aiko",
+                "Nicesoft",
                 "aiko",
                 "Solar-powered.",
 
@@ -127,6 +131,7 @@ namespace pacman
 
             constexpr info onpu = {
                 "Onpu",
+                "Nicesoft",
                 "onpu",
                 "onpu strong",
 
@@ -136,9 +141,9 @@ namespace pacman
                 { 153, 113, 181 }, // costume / violet
                 
                 {
-                    1.0,
+                    1.01,
                     1.1,
-                    0.9
+                    0.92
                 },
 
                 { 10, 10 },
@@ -148,6 +153,7 @@ namespace pacman
 
             constexpr info momoko = {
                 "Momoko",
+                "Nicesoft",
                 "momoko",
                 "\"Oh my god!\"",
 
@@ -169,6 +175,7 @@ namespace pacman
 
             constexpr info hana = {
                 "Hana",
+                "Nicesoft",
                 "hana",
                 "\"Chiisu!\"",
 
@@ -191,6 +198,7 @@ namespace pacman
 
             constexpr info poppu = {
                 "Pop",
+                "Nicesoft",
                 "poppu",
                 "The",
 
@@ -213,6 +221,7 @@ namespace pacman
 
             constexpr info shorts = {
                 "Shorts-san",
+                "Nicesoft",
                 "shorts",
                 "It's Doremi's shorts.\n(they have a face)",
 
@@ -235,6 +244,7 @@ namespace pacman
 
             constexpr info pacman = {
                 "Pacman",
+                "Nicesoft",
                 "pacman",
                 "It's Pacman.",
 
@@ -256,6 +266,7 @@ namespace pacman
 
             constexpr info burypink = {
                 "bury pink",
+                "Nicesoft",
                 "burypink",
                 "this is nice character",
 
@@ -265,9 +276,9 @@ namespace pacman
                 { 1, 84, 214 },
 
                 { 
-                    1.2,
-                    1.2,
-                    1.2
+                    1.15,
+                    1.15,
+                    1.15
                 },
 
                 { 8, 8 },
@@ -275,12 +286,35 @@ namespace pacman
                 BURYPINK
             };
 
+            constexpr info esforestan = {
+                "[s4s]-tan",
+                "DWTH",
+                "s4stan",
+                "The meme lord herself",
+
+                5555,
+
+                { 128, 0, 0 }, // hair / red
+                { 255, 0, 220 }, // costume / pink
+
+                { 
+                    1.33,
+                    1.33,
+                    1.33
+                },
+
+                { 8, 11 },
+
+                ESFORESTAN
+            };
+
             constexpr info dodo = {
                 "Dodo",
+                "Nicesoft",
                 "dodo",
                 "Dodo dododo dodo.\n(the best character)",
 
-                50000,
+                10000,
 
                 { 205, 141, 158 }, // hair / light pink
                 { 251, 217, 224 }, // costume / light pink
@@ -311,6 +345,7 @@ namespace pacman
                     case PACMAN: return pacman;
                     case BURYPINK: return burypink;
                     case DODO: return dodo;
+                    case ESFORESTAN: return esforestan;
                 }
 
                 return doremi;

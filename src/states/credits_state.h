@@ -30,9 +30,11 @@ public:
                     sf::Text("", fonts::emulogic, 8),
                     sf::Text("Programming", fonts::emulogic, 8),
                     sf::Text("yuiposter #1 original", fonts::emulogic, 8),
+                    sf::Text("Doctor Worse Than Hitler", fonts::emulogic, 8),
                     sf::Text("", fonts::emulogic, 8),
                     sf::Text("Graphics", fonts::emulogic, 8),
                     sf::Text("yuipostingman", fonts::emulogic, 8),
+                    sf::Text("Doctor Worse Than Hitler", fonts::emulogic, 8),
                     sf::Text("Namco", fonts::emulogic, 8),
                     sf::Text("", fonts::emulogic, 8),
                     sf::Text("Audio", fonts::emulogic, 8),
@@ -62,9 +64,9 @@ public:
                 m_credits[1].setColor({ 100, 100, 100, 255 });
                 m_credits[2].setColor({ 100, 100, 100, 255 });
                 m_credits[9].setColor({ 255, 255, 255, 255 });
-                m_credits[12].setColor({ 255, 255, 255, 255 });
-                m_credits[16].setColor({ 255, 255, 255, 255 });
-                m_credits[20].setColor({ 255, 255, 255, 255 });
+                m_credits[13].setColor({ 255, 255, 255, 255 });
+                m_credits[18].setColor({ 255, 255, 255, 255 });
+                m_credits[22].setColor({ 255, 255, 255, 255 });
 
                 m_current_hadzuki.loadFromFile("data/black_1x1.png");
                 m_next_hadzuki.loadFromFile("data/black_1x1.png");

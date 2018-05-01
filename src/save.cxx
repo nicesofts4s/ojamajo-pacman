@@ -13,17 +13,31 @@ namespace pacman
         {
             fstream.imbue(std::locale::classic());
 
+            std::string version;
+            fstream >> version;
+
+            bool no_esforestan = false;
+
+            if(version != "1.1")
+            {
+                no_esforestan = true;
+                fstream.seekg(0);
+            }
+
             fstream >> volume;
 
             std::hash<std::string> hash;
             for(int i = 0; i < data::characters::SIZE_CHARACTER; i++)
             {
-                std::size_t expected_value = hash(data::characters::enum_to_info(static_cast<data::characters::character_enum>(i)).path);
+                if(i != data::characters::ESFORESTAN || !no_esforestan)
+                {
+                    std::size_t expected_value = hash(data::characters::enum_to_info(static_cast<data::characters::character_enum>(i)).path);
 
-                std::size_t recieved_value;
-                fstream >> recieved_value;
+                    std::size_t recieved_value;
+                    fstream >> recieved_value;
 
-                unlocked[i] = recieved_value == expected_value;
+                    unlocked[i] = recieved_value == expected_value;
+                }
             }
 
             int recieved_character = data::characters::DOREMI;
@@ -45,13 +59,16 @@ namespace pacman
 
         if(!unlocked[(int)selected_character])
             selected_character = data::characters::DOREMI;
+
+        unlocked[data::characters::ESFORESTAN] = true;
     }
 
     void save::save_to_file(const std::string& file) const
     {
         std::ofstream fstream(file);
         fstream.imbue(std::locale::classic());
-
+        
+        fstream << "1.1" << std::endl;
         fstream << volume << std::endl;
 
         std::hash<std::string> hash;

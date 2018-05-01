@@ -13,7 +13,7 @@ public:
 
         float volume = -1;
         
-        bool unlocked[data::characters::SIZE_CHARACTER] = { true, false, false, false, false, false, false, false, false, false, false };
+        bool unlocked[data::characters::SIZE_CHARACTER] = { true, false, false, false, false, false, false, false, false, false, false, false };
         data::characters::character_enum selected_character = data::characters::DOREMI;
 
         std::uint64_t highscore = 0;
