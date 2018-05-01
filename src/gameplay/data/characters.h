@@ -24,8 +24,8 @@ namespace pacman
                 SHORTS,
                 PACMAN,
                 BURYPINK,
-                DODO,
                 ESFORESTAN,
+                DODO,
 
                 SIZE_CHARACTER
             };
